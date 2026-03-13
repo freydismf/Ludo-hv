@@ -1,0 +1,70 @@
+
+.one, .two, .three, .four, .five, .six, .nero, .tumi {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.label, .button{
+    -fx-border-color: purple;
+    -fx-background-color: #e7b1ed;
+}
+
+VBox  {
+    -fx-background-color: #c6b8e1;
+}
+
+.nero {
+    -fx-background-image: url("myndir/Nero.png");
+}
+
+.tumi {
+    -fx-background-image: url("myndir/Tumi.png");
+}
+
+.one {
+    -fx-background-image: url("myndir/dice-six-faces-one.png");
+
+}
+
+.two {
+    -fx-background-image: url("myndir/dice-six-faces-two.png");
+
+}
+
+.three {
+    -fx-background-image: url("myndir/dice-six-faces-three.png");
+
+}
+
+.four {
+    -fx-background-image: url("myndir/dice-six-faces-four.png");
+
+}
+
+
+.five {
+    -fx-background-image: url("myndir/dice-six-faces-five.png");
+
+}
+
+.six {
+    -fx-background-image: url("myndir/dice-six-faces-six.png");
+
+}
+
+.start {
+    -fx-background-color: #b9eab8;
+    -fx-border-color: white;
+}
+
+.normal {
+    -fx-background-color: #f6f3cf;
+    -fx-border-color: white;
+}
+
+.end {
+    -fx-background-color: #d0fafa;
+    -fx-border-color: white;
+}
+

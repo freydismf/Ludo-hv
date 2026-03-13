@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+Notendaviðmót fyrir grunn
+-->
+
+<VBox alignment="CENTER" prefHeight="750.0" prefWidth="680.0" spacing="20.0" stylesheets="@CSS/Ludo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.LudoController"> <!-- Stýriklasinn fyrir notendaviðmótið -->
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <GridPane fx:id="fxBord" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+        </rowConstraints>
+      </GridPane>
+      <HBox prefHeight="115.0" prefWidth="594.0" spacing="5.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="291.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="fxLeikmadur" alignment="CENTER" prefHeight="52.0" prefWidth="350.0" text="Leikmaður gerir" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="fxSkilabod" alignment="CENTER" prefHeight="52.0" prefWidth="350.0" text=" Ýttu á tening til þess að kasta" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <Button fx:id="fxNyrLeikur" mnemonicParsing="false" onAction="#onNyrLeikur" prefHeight="115.0" prefWidth="115.0" text="Nýr Leikur " />
+            <Button fx:id="fxTeningur" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTeinigur" prefHeight="115.0" prefWidth="115.0" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
