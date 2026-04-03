@@ -3,6 +3,7 @@ package is.vidmot;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -71,7 +72,8 @@ public class ViewSwitcher {
                 System.out.println("Loading from cache");
                 root = cache.get(view);
                 controller = controllerCache.get(view);
-            } else {
+            }
+            else {
                 System.out.println("Loading from FXML " + view.getFileName());
                 FXMLLoader loader = new FXMLLoader(ViewSwitcher
                         .class.getResource(view.getFileName()));
@@ -82,9 +84,9 @@ public class ViewSwitcher {
                     controllerCache.put(view, loader.getController());
                 }
             }
-//            if (controller instanceof GognInterface) {
-//                ((GognInterface) controller).setGogn(hlutur);
-//            }
+            if (controller instanceof GognInterface) {
+                ((GognInterface) controller).setGogn(hlutur);
+            }
             scene.setRoot(root);
         }
         catch (IOException e) {

@@ -1,5 +1,6 @@
 package is.vidmot;
 
+import is.vinnsla.Leikstillingar;
 import is.vinnsla.Reitur;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -16,11 +17,10 @@ import java.util.HashMap;
 
 
 /******************************************************************************
- *  Nafn    : Freydís María Friðriksdóttir
- *  T-póstur: fmf6@hi.is
+ *  Nafn    : Freydís María og Hrefna Sóley
  *  Lýsing  : Controller eða stýring fyrir notendaviðmótið
  *****************************************************************************/
-public class LudoController {
+public class LudoController implements GognInterface<Leikstillingar>{
     //fastar
     public static final String LEIK_LOKID_LEIKMADUR = "Leik lokið - leikmaður ";
     public static final String LEIKUR_I_GANGI_NAESTI_GERIR_ = "Leikur í gangi, næst gerir ";
@@ -40,8 +40,9 @@ public class LudoController {
     @FXML
     private Button fxTeningur;
     //vinnslan
-    private final Ludo ludo = new Ludo();
-
+    //private final Ludo ludo = new Ludo();
+    private Leikstillingar stillingar;
+    private Ludo ludo;
     private final HashMap<Reitur, StackPane> vidmotLeid = new HashMap<>();
 
     /**
@@ -60,21 +61,27 @@ public class LudoController {
     void onTeinigur(ActionEvent event) {
         ludo.leikaLeik();
     }
-   /**
+
+    /**
     * Frumstilling á viðmótshlutum og byrjar leikinn
     */
-    public void initialize() throws IOException {
-      // búa til leiðina á lúdó borðinu (6)
-        geraLeid();
+    @Override
+    public void setGogn(Leikstillingar stillingar) {
+        this.stillingar = stillingar;
+        ludo = new Ludo();
+        ludo.setNafnLeikmanns(stillingar.getNafn());
+        try {
+            geraLeid();
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         geracCute();
-      // binda teningamyndirnar við teninginn (7)
         stillaTening();
-      // bindur reitina á borðinu við reitinn sem leikmaður er á (8)
         bindaLeikmenn();
-      // binda hnappana við ástandið á leiknum (9)
         bindaHnappa();
-      // bindur skilaboðin um hver á að gera og hver er sigurvegari við gögn úr vinnslunni (10)
         bindaSkilabod();
+
     }
 
     /**

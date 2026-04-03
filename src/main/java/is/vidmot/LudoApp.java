@@ -2,6 +2,7 @@ package is.vidmot;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /******************************************************************************
@@ -20,17 +21,12 @@ public class LudoApp extends javafx.application.Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        // Smíða loader fyrir notendaviðmótið sem er geymt í skránni ludo-view.fxml
-        // Gætið þess að .fxml skráin sé undir resources/is/vidmot
-        FXMLLoader fxmlLoader = new FXMLLoader(LudoApp.class.getResource("ludo-view.fxml"));
-        // Smíða senuna með notendaviðmótinu sem er núna lesið inn af resources
-        Scene scene = new Scene(fxmlLoader.load());
-        // Setja titilinn á gluggann
+        Scene scene = new Scene(new Pane());
+        ViewSwitcher.setScene(scene);
+        ViewSwitcher.switchTo(View.LOGIN, true);
         stage.setTitle("Lúdó");
-        // Tengja senuna við glugggann
         stage.setScene(scene);
-        stage.setResizable(false);
-        // Birta gluggann
+        //stage.setResizable(false);
         stage.show();
     }
 

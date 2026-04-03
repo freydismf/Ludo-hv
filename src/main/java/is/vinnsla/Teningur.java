@@ -4,8 +4,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import java.util.Random;
 /******************************************************************************
- *  Nafn    : Freydís María Friðriksdóttir
- *  T-póstur: fmf6@hi.is
+ *  Nafn    : Freydís María og Hrefna Sóley
  *  Lýsing  : Teningaklasi fyrir lúdó
  *****************************************************************************/
 public class Teningur {
