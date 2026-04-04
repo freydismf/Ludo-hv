@@ -4,8 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /******************************************************************************
- *  Nafn     : Freydís María Friðriksdóttir
- *  T-póstur : fmf6@hi.is
+ *  Nafn     : Freydís María og Hrefna Sóley
  *  Lýsing   : Klasi fyrir leikmann
  *****************************************************************************/
 public class Leikmadur {
@@ -20,6 +19,7 @@ public class Leikmadur {
     public Leikmadur(String leikmadur) {
         this.leikmadur.setValue(leikmadur);
     }
+
 
     /**
      * Færir peð leikmanns um i sæti en þó aldrei fram yfir max
@@ -52,6 +52,14 @@ public class Leikmadur {
      */
     public String getNafn() {
         return leikmadur.get();
+    }
+
+    /**
+     * Setur nafn leikmanns
+     * @param nafn
+     */
+    public void setNafn(String nafn){
+        leikmadur.set(nafn);
     }
 
     /**

@@ -5,12 +5,12 @@ import javafx.beans.property.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /******************************************************************************
- *  Nafn    : Freydís María Friðriksdóttir
- *  T-póstur: fmf6@hi.is
- *  Lýsing  :
+ *  Nafn    : Freydís María og Hrefna Sóley
+ *  Lýsing  : Vinnsluklasi fyrir lúdó
  *****************************************************************************/
 public class Ludo {
 
@@ -26,7 +26,7 @@ public class Ludo {
     private final Teningur teningur = new Teningur();
     //Tveir leikmenn
     private final Leikmadur[] leikmenn =
-            new Leikmadur[]{new Leikmadur("Tumi"), new Leikmadur("Neró")};
+            new Leikmadur[]{new Leikmadur("Þú"), new Leikmadur("Tölva")};
     //Heldur utan um reiti
     private final ArrayList<Reitur> leid = new ArrayList<>();
     //Heldur utan um stöðu leiks
@@ -36,7 +36,7 @@ public class Ludo {
     //Næsti leikmaður sem á að gera
     private final SimpleStringProperty naestiLeikmadurProperty =
             new SimpleStringProperty(leikmenn[0].getNafn());
-
+    private final Random random = new Random();
 
     /**
      *
@@ -117,6 +117,14 @@ public class Ludo {
     }
 
     //get og set aðferðir
+    /**
+     * Setter aðferð fyrir nafn leikmanns og tölvu
+     * @param nafn
+     */
+    public void setNafnLeikmanns(String nafn){
+        leikmenn[0].setNafn(nafn);
+        naestiLeikmadurProperty.set(leikmenn[naesti].getNafn());
+    }
     /**
      * get aðferð fyrir leikmann númer i
      * @param i 0 eða 1
