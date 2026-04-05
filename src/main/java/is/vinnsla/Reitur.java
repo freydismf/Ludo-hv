@@ -14,12 +14,23 @@ public class Reitur {
 
     /**
      *
-     * @param rod
-     * @param dalkur
+     * @param rod Röð Rúðugrindar
+     * @param dalkur Dálkur Rúðugrindar
      */
     public Reitur(int rod, int dalkur){
         this.dalkur = dalkur;
         this.rod = rod;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Reitur)) return false;
+        Reitur r = (Reitur) o;
+        return rod == r.rod && dalkur == r.dalkur;
+    }
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(rod, dalkur);
     }
 
     /**
