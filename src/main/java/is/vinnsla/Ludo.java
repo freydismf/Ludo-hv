@@ -17,6 +17,7 @@ public class Ludo {
     private int naesti = 0;
     private int fyrri = 0;
     private final int MARK;
+    private final int MARK2;
     enum Stada{
         I_GANGI,
         LOKID
@@ -29,6 +30,7 @@ public class Ludo {
             new Leikmadur[]{new Leikmadur("Þú"), new Leikmadur("Tölva")};
     //Heldur utan um reiti
     private final ArrayList<Reitur> leid = new ArrayList<>();
+    private final ArrayList<Reitur> leid2 = new ArrayList<>();
     //Heldur utan um stöðu leiks
     private final SimpleObjectProperty<Stada> stada = new SimpleObjectProperty<>(Stada.I_GANGI);
     //Nær í sigurvegara
@@ -42,31 +44,73 @@ public class Ludo {
      *
      */
     public Ludo(){
-        Reitur byrjun = new Reitur(5,0);
-        leid.add(byrjun);
-        for(int i = 4; i >= 0 ; i--){
-            Reitur nyrReitur = new Reitur(i, 0);
-            leid.add(nyrReitur);
+
+        //Upphafs reitur
+        for (int i = 13; i >= 8; i--) {
+            leid.add(new Reitur(i, 6));
         }
-        for(int i = 1; i <= 5 ; i++){
-            Reitur nyrReitur = new Reitur(0, i);
-            leid.add(nyrReitur);
+
+        for (int j =5; j >= 0; j--) {
+            leid.add(new Reitur(8, j));
         }
-        for(int i = 1; i <= 5 ; i++){
-            Reitur nyrReitur = new Reitur(i, 5);
-            leid.add(nyrReitur);
+
+        for (int i = 7; i >= 6; i--) {
+            leid.add(new Reitur(i, 0));
         }
-        for(int i = 4; i>=2;i--){
-            Reitur nyrReitur = new Reitur(5, i);
-            leid.add(nyrReitur);
+
+        for (int j = 1; j <= 6; j++) {
+            leid.add(new Reitur(6, j));
         }
-        for(int i = 4; i>=2;i--) {
-            Reitur nyrReitur = new Reitur(i, 2);
-            leid.add(nyrReitur);
+
+        for (int i = 5; i >= 0; i--) {
+            leid.add(new Reitur(i, 6));
         }
-        Reitur mark = new Reitur(2,3);
+
+        for (int j = 7; j <= 8; j++) {
+            leid.add(new Reitur(0, j));
+        }
+
+        for (int i = 1; i <= 6; i++) {
+            leid.add(new Reitur(i, 8));
+        }
+
+        for (int j =  9; j <= 14; j++) {
+            leid.add(new Reitur(6, j));
+        }
+
+        for (int i = 7; i <= 8; i++) {
+            leid.add(new Reitur(i, 14));
+        }
+
+        for (int j = 13; j >= 8; j--) {
+            leid.add(new Reitur(8, j));
+        }
+
+        for (int i = 9; i <= 14; i++) {
+            leid.add(new Reitur(i, 8));
+        }
+
+        for (int j = 7; j >= 6; j--) {
+            leid.add(new Reitur(14, j));
+        }
+
+        for (int i = 13; i >= 8; i--) {
+            leid.add(new Reitur(i, 7));
+        }
+
+        //Loka reitur
+        Reitur mark = new Reitur(7,7);
         leid.add(mark);
         MARK = leid.size();
+
+        ArrayList<Reitur> outerLoop = new ArrayList<>(leid.subList(0, 56));
+        for (int i = 28; i < 56; i++) leid2.add(outerLoop.get(i));
+        for (int i = 0; i < 27; i++) leid2.add(outerLoop.get(i));
+
+        for (int i = 1; i <= 7; i++) {
+            leid2.add(new Reitur(i, 7));
+        }
+        MARK2 = leid2.size();
     }
 
     /**
@@ -95,7 +139,8 @@ public class Ludo {
      * @return hvort að leikmaður sé í marki
      */
     private boolean faeraleikmann(){
-        getLeikmadur().faera(teningur.getTala(),MARK);
+        int mark = (naesti == 1) ? MARK2 : MARK;
+        getLeikmadur().faera(teningur.getTala(),  mark);
         return erImarki();
     }
 
@@ -119,7 +164,7 @@ public class Ludo {
     //get og set aðferðir
     /**
      * Setter aðferð fyrir nafn leikmanns og tölvu
-     * @param nafn
+     * @param nafn Nafn Leikmanns
      */
     public void setNafnLeikmanns(String nafn){
         leikmenn[0].setNafn(nafn);
@@ -179,13 +224,17 @@ public class Ludo {
     public ArrayList<Reitur> getLeid(){
         return leid;
     }
+    public ArrayList<Reitur> getLeid2(){
+        return leid2;
+    }
 
     // private hjálparaðferðir
     /**
      * @return segir til um hvort leikmaður er á lokareiti
      */
     private boolean erImarki(){
-        return getLeikmadur().getReitur() == MARK;
+        int mark = (naesti == 1) ? MARK2 : MARK;
+        return getLeikmadur().getReitur() == mark;
     }
 
     /**

@@ -117,6 +117,15 @@ public class LudoController implements GognInterface<Leikstillingar>{
             fxBord.add(s ,r.getDalkur(), r.getRod());
             vidmotLeid.put(r,s);
         }
+
+        ArrayList<Reitur> leid2 = ludo.getLeid2();
+        for(Reitur r: leid2){
+            if(!vidmotLeid.containsKey(r)){
+                StackPane s = nySella();
+                fxBord.add(s ,r.getDalkur(), r.getRod());
+                vidmotLeid.put(r,s);
+            }
+        }
     }
 
     /**
@@ -133,7 +142,7 @@ public class LudoController implements GognInterface<Leikstillingar>{
     private void bindaLeikmenn() {
         String[] leikmadurStill = {"tumi", "nero"};
         vidmotLeid.get(ludo.getLeid().getFirst()).getStyleClass().add(leikmadurStill[0]);
-        vidmotLeid.get(ludo.getLeid().getFirst()).getStyleClass().add(leikmadurStill[1]);
+        vidmotLeid.get(ludo.getLeid2().getFirst()).getStyleClass().add(leikmadurStill[1]);
         ludo.getLeikmadur(0).getReiturProperty().addListener((obs, gamaltGildi, nyttGildi) -> {
 
             Reitur gamliReitur = ludo.getLeid().get(gamaltGildi.intValue()-1);
@@ -150,8 +159,8 @@ public class LudoController implements GognInterface<Leikstillingar>{
 
         ludo.getLeikmadur(1).getReiturProperty().addListener((obs, gamaltGildi, nyttGildi) -> {
 
-            Reitur gamliReitur = ludo.getLeid().get(gamaltGildi.intValue()-1);
-            Reitur nyiReitur = ludo.getLeid().get(nyttGildi.intValue()-1);
+            Reitur gamliReitur = ludo.getLeid2().get(gamaltGildi.intValue()-1);
+            Reitur nyiReitur = ludo.getLeid2().get(nyttGildi.intValue()-1);
 
             vidmotLeid.get(gamliReitur)
                     .getStyleClass()
@@ -185,10 +194,20 @@ public class LudoController implements GognInterface<Leikstillingar>{
     private void geracCute(){
         String[] litir = {"start", "end" ,"normal"};
         Reitur byrjun = ludo.getLeid().getFirst();
+        Reitur byrjun2 = ludo.getLeid2().getFirst();
         vidmotLeid.get(byrjun).getStyleClass().add(litir[0]);
-        for(int i = 1; i < 23; i++){
+        vidmotLeid.get(byrjun2).getStyleClass().add(litir[0]);
+        for(int i = 1; i < 56; i++){
             Reitur reitur = ludo.getLeid().get(i);
             vidmotLeid.get(reitur).getStyleClass().add(litir[2]);
+        }
+        for(int i = 56; i < ludo.getLeid().size() - 1; i++){
+            Reitur reitur = ludo.getLeid().get(i);
+            vidmotLeid.get(reitur).getStyleClass().add(litir[1]);
+        }
+        for(int i = 55; i < ludo.getLeid2().size() - 1; i++){
+            Reitur reitur = ludo.getLeid2().get(i);
+            vidmotLeid.get(reitur).getStyleClass().add(litir[1]);
         }
         Reitur mark = ludo.getLeid().getLast();
         vidmotLeid.get(mark).getStyleClass().add(litir[1]);
