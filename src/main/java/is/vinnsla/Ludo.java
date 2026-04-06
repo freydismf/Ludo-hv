@@ -5,7 +5,6 @@ import javafx.beans.property.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 /******************************************************************************
@@ -36,7 +35,7 @@ public class Ludo {
     //Næsti leikmaður sem á að gera
     private final SimpleStringProperty naestiLeikmadurProperty =
             new SimpleStringProperty(leikmenn[0].getNafn());
-    private final Random random = new Random();
+
 
     /**
      *
