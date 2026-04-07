@@ -2,7 +2,6 @@ package is.vinnsla;
 
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -103,8 +102,12 @@ public class Ludo {
         MARK = leid.size();
 
         ArrayList<Reitur> outerLoop = new ArrayList<>(leid.subList(0, 56));
-        for (int i = 28; i < 56; i++) leid2.add(outerLoop.get(i));
-        for (int i = 0; i < 27; i++) leid2.add(outerLoop.get(i));
+        for (int i = 28; i < 56; i++) {
+            leid2.add(outerLoop.get(i));
+        }
+        for (int i = 0; i < 27; i++) {
+            leid2.add(outerLoop.get(i));
+        }
 
         for (int i = 1; i <= 7; i++) {
             leid2.add(new Reitur(i, 7));
@@ -223,6 +226,10 @@ public class Ludo {
     public ArrayList<Reitur> getLeid(){
         return leid;
     }
+    /**
+     * Skilar lista með leiðinni
+     * @return leið2
+     */
     public ArrayList<Reitur> getLeid2(){
         return leid2;
     }
@@ -252,6 +259,7 @@ public class Ludo {
         return stada.isEqualTo(Stada.LOKID);
     }
 
+
     /**
      * setur þann leikmann sem á að gera næst
      */
@@ -260,8 +268,6 @@ public class Ludo {
         naestiLeikmadurProperty.set(leikmenn[naesti].getNafn());
         fyrri = (naesti + 1) % leikmenn.length;
     }
-
-
 
 
     /**

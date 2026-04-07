@@ -1,0 +1,158 @@
+
+.root {
+    -fx-background-color: linear-gradient(to bottom, #FFF0F5, #F3E8FF);
+    -fx-font-family: "Segoe UI";
+}
+
+.menu-bar {
+    -fx-background-color: #FADADD;
+    -fx-border-color: transparent transparent #E6C7CC transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #5A4E5C;
+}
+
+.context-menu {
+    -fx-background-color: #FFF5F7;
+    -fx-border-color: #E6C7CC;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.menu-item:focused,
+.radio-menu-item:focused {
+    -fx-background-color: #F3D1DC;
+}
+
+.label {
+    -fx-text-fill: #5A4E5C;
+}
+
+.button {
+    -fx-background-color: #FFC2D9;
+    -fx-text-fill: #4A3F4D;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #E6B8D1;
+    -fx-border-width: 1;
+}
+
+.button:hover {
+    -fx-background-color:#FFC2D9;
+}
+
+.button:disabled {
+    -fx-opacity: 0.65;
+}
+
+#fxTeningur {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+.text-area,
+.text-field,
+.combo-box {
+    -fx-background-color: #FFF8FB;
+    -fx-text-fill: #5A4E5C;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #E6C7CC;
+    -fx-border-width: 1;
+}
+
+.text-area .content {
+    -fx-background-color: #FFF8FB;
+}
+
+.combo-box .list-cell,
+.combo-box .arrow-button,
+.text-field {
+    -fx-text-fill: #5A4E5C;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFF5F7;
+    -fx-border-color: #E6C7CC;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #FADADD;
+}
+
+.one, .two, .three, .four, .five, .six, .goal {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.blattPed, .graentPed, .gultPed, .rauttPed, .svartPed {
+    -fx-background-size: 40px;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.blattPed {
+    -fx-background-image: url("myndir/hringur-blar.png");
+}
+.graentPed {
+    -fx-background-image: url("myndir/hringur-graenn.png");
+}
+.gultPed {
+    -fx-background-image: url("myndir/hringur-gulur.png");
+}
+.rauttPed {
+    -fx-background-image: url("myndir/hringur-raudur.png");
+}
+.svartPed {
+    -fx-background-image: url("myndir/hringur-svartur.png");
+}
+
+
+.one {
+    -fx-background-image: url("myndir/dice-six-faces-one.png");
+}
+.two {
+    -fx-background-image: url("myndir/dice-six-faces-two.png");
+}
+.three {
+    -fx-background-image: url("myndir/dice-six-faces-three.png");
+}
+.four {
+    -fx-background-image: url("myndir/dice-six-faces-four.png");
+}
+.five {
+    -fx-background-image: url("myndir/dice-six-faces-five.png");
+}
+.six {
+    -fx-background-image: url("myndir/dice-six-faces-six.png");
+}
+
+
+.start, .normal, .end, .goal {
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-width: 1.2;
+    -fx-border-color: #6A5D6D;
+}
+
+.start {
+    -fx-background-color: #FFE66D;
+}
+
+.normal {
+    -fx-background-color: #FFF8FB;
+}
+
+.end {
+    -fx-background-color: #A0C4FF;
+}
+
+.goal {
+    -fx-background-color: #A8E6CF;
+}
