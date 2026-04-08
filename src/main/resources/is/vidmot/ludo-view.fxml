@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!-- Notendaviðmót fyrir grunn -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="750.0" stylesheets="@CSS/Ludo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.LudoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.LudoController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="27.0" prefWidth="750.0">
+      <MenuBar prefHeight="27.0" prefWidth="750.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Þema">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <RadioMenuItem fx:id="fxLjost" mnemonicParsing="false" selected="true" text="Ljóst">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="theme" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="fxDokkt" mnemonicParsing="false" text="Dökkt" toggleGroup="$theme" />
+                <RadioMenuItem fx:id="fxPastel" mnemonicParsing="false" text="Pastel" toggleGroup="$theme" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Hjálp">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="8">
+                           <children>
+                              <Label style="-fx-text-fill: black;" text="Leikreglur:" />
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Kastaðu teningi og færðu peðið áfram.&#10;&#10;Lendirðu á andstæðingi? Þá fer hann aftur í byrjun.&#10;&#10;Komdu peðinu í mark til að vinna." wrapText="true" />
+                           </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </VBox>
+                     </content>
+                  </CustomMenuItem>
             </items>
           </Menu>
         </menus>
@@ -25,7 +55,7 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <GridPane fx:id="fxBord" layoutY="29.0" prefHeight="721.0" prefWidth="750.0">
+      <GridPane fx:id="fxBord" alignment="CENTER" layoutY="30.0" prefHeight="721.0" prefWidth="751.0">
         <columnConstraints>
           <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -44,53 +74,126 @@
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="9" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.rowSpan="6">
+            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" spacing="18" GridPane.columnIndex="9" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.rowSpan="6">
                <children>
-                  <Button fx:id="fxTeningur" mnemonicParsing="false" prefHeight="175.0" prefWidth="175.0" onAction="#onTeinigur" translateX="62.0" translateY="5.0">
+                  <Button fx:id="fxTeningur" mnemonicParsing="false" onAction="#onTeinigur" prefHeight="160.0" prefWidth="160.0">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="fxNyrLeikur" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="115.0" onAction="#onNyrLeikur" text="Nýr Leikur" translateY="20.0">
+                  <Button fx:id="fxNyrLeikur" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNyrLeikur" prefHeight="50.0" prefWidth="160.0" text="Nýr Leikur">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
                </children>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="100.0" GridPane.columnSpan="6" GridPane.rowSpan="6">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="18" GridPane.columnSpan="6" GridPane.rowSpan="6">
                <children>
-                  <Label fx:id="fxLeikmadur" alignment="CENTER" contentDisplay="TOP" prefHeight="100.0" prefWidth="300.0" text="Leikmaður gerir" translateY="25.0" VBox.vgrow="ALWAYS">
+                  <Label fx:id="fxLeikmadur" alignment="CENTER" contentDisplay="TOP" prefWidth="260.0" text="Leikmaður gerir" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="fxSkilabod" alignment="CENTER" prefHeight="100.0" prefWidth="300.0" text="Ýttu á tening til að gera" translateY="60.0" VBox.vgrow="ALWAYS">
+                  <Label fx:id="fxSkilabod" alignment="CENTER" prefWidth="260.0" text="Ýttu á tening til að gera" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="9" GridPane.columnSpan="6" GridPane.rowSpan="6" />
-            <VBox prefHeight="100.0" prefWidth="100.0" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.rowSpan="6" />
+             <VBox alignment="CENTER" spacing="12" GridPane.columnIndex="9" GridPane.columnSpan="6" GridPane.rowSpan="6">
+                 <children>
+                     <Label text="Andstæðingur">
+                         <font>
+                             <Font size="16.0" />
+                         </font>
+                     </Label>
+
+                     <Label alignment="CENTER" prefWidth="220.0" text="Tölva" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="22.0" />
+                         </font>
+                     </Label>
+
+                     <Label alignment="CENTER" prefWidth="220.0" text="Svartur" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     </Label>
+
+                     <Label fx:id="fxStadaTolvu" alignment="CENTER" prefWidth="220.0" text="" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     </Label>
+                 </children>
+                 <padding>
+                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                 </padding>
+             </VBox>
+             <VBox alignment="CENTER" spacing="12" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.rowSpan="6">
+                 <children>
+                     <Label text="Leikmaður">
+                         <font>
+                             <Font size="16.0" />
+                         </font>
+                     </Label>
+
+                     <Label fx:id="fxNafnNotanda" alignment="CENTER" prefWidth="220.0" text="Nafn" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="22.0" />
+                         </font>
+                     </Label>
+
+                     <Label fx:id="fxLiturNotanda" alignment="CENTER" prefWidth="220.0" text="Blár" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     </Label>
+
+                     <Label fx:id="fxStadaNotanda" alignment="CENTER" prefWidth="220.0" text="" textAlignment="CENTER" wrapText="true">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     </Label>
+                 </children>
+                 <padding>
+                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                 </padding>
+             </VBox>
          </children>
       </GridPane>
    </children>
