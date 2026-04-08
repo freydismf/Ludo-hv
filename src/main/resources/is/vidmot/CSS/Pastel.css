@@ -115,24 +115,23 @@
 
 
 .one {
-    -fx-background-image: url("myndir/dice-six-faces-one.png");
+    -fx-background-image: url("myndir/inverted-dice-1-pastel.png");
 }
 .two {
-    -fx-background-image: url("myndir/dice-six-faces-two.png");
+    -fx-background-image: url("myndir/inverted-dice-2-pastel.png");
 }
 .three {
-    -fx-background-image: url("myndir/dice-six-faces-three.png");
+    -fx-background-image: url("myndir/inverted-dice-3-pastel.png");
 }
 .four {
-    -fx-background-image: url("myndir/dice-six-faces-four.png");
+    -fx-background-image: url("myndir/inverted-dice-4-pastel.png");
 }
 .five {
-    -fx-background-image: url("myndir/dice-six-faces-five.png");
+    -fx-background-image: url("myndir/inverted-dice-5-pastel.png");
 }
 .six {
-    -fx-background-image: url("myndir/dice-six-faces-six.png");
+    -fx-background-image: url("myndir/inverted-dice-6-pastel.png");
 }
-
 
 .start, .normal, .end, .goal {
     -fx-background-radius: 16;

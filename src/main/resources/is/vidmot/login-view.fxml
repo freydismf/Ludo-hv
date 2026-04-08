@@ -35,12 +35,12 @@
 
                   <Text text="&#10;&#10; "/>
 
-                  <Text text="• Kastaðu teningi og færðu peðið áfram"
+                  <Text text="Kastaðu teningi og færðu peðið áfram"
                         style="-fx-font-size: 13px; -fx-fill: #2b241c;" />
 
-                  <Text text="&#10; "/>
+                  <Text text="&#10;&#10; "/>
 
-                  <Text text="• Ef þú lendir á sama reit og andstæðingur fer hann aftur í byrjun"
+                  <Text text="Ef þú lendir á sama reit og andstæðingur fer hann aftur á byrjunarreit"
                         style="-fx-font-size: 13px; -fx-fill: #2b241c;" />
 
                   <Text text="&#10;&#10; "/>
@@ -60,7 +60,7 @@
       </VBox>
       <HBox prefWidth="320.0" alignment="CENTER" spacing="12.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="80.0" text="Nafn:">
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="80.0" text="Nafn:">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -69,7 +69,7 @@
       </HBox>
       <HBox prefWidth="320.0" alignment="CENTER" spacing="12.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="80.0" text="Litur:">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="80.0" text="Litur:">
                <font>
                   <Font size="14.0" />
                </font></Label>
