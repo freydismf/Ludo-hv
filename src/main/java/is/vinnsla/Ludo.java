@@ -149,7 +149,9 @@ public class Ludo {
      * @return true ef leikmenn eru á sama reit, annars false
      */
     private boolean samiReitur(){
-        return getLeikmadur(0).getReitur() == getLeikmadur(1).getReitur();
+        Reitur r0 = leid.get(getLeikmadur(0).getReitur() - 1);
+        Reitur r1 = leid2.get(getLeikmadur(1).getReitur() - 1);
+        return r0.getRod() == r1.getRod() && r0.getDalkur() == r1.getDalkur();
     }
 
     /**
