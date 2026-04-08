@@ -1,0 +1,139 @@
+/* Light.css */
+
+.root {
+    -fx-background-color: #f5f4f1;
+    -fx-font-family: "Segoe UI";
+}
+
+.menu-bar {
+    -fx-background-color: #ece9e3;
+    -fx-border-color: transparent transparent #cfc9bf transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #2b241c;
+}
+
+.context-menu {
+    -fx-background-color: #f8f6f2;
+    -fx-border-color: #d6d0c7;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.menu-item:focused,
+.radio-menu-item:focused {
+    -fx-background-color: #ddd7cd;
+}
+
+.label {
+    -fx-text-fill: #2b241c;
+}
+
+.button {
+    -fx-background-color: #ece9e3;
+    -fx-text-fill: #2b241c;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #c9c2b8;
+    -fx-border-width: 1;
+}
+
+.button:hover {
+    -fx-background-color: #e3ded5;
+}
+
+.button:disabled {
+    -fx-opacity: 0.65;
+}
+#fxTeningur {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+.text-area {
+    -fx-background-color: #f8f6f2;
+    -fx-border-color: #d6d0c7;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #2b241c;
+}
+
+.text-area .content {
+    -fx-background-color: #f8f6f2;
+}
+
+.one, .two, .three, .four, .five, .six, .goal {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.blattPed, .graentPed, .gultPed, .rauttPed, .svartPed {
+    -fx-background-size: 40px;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.blattPed {
+    -fx-background-image: url("myndir/hringur-blar.png");
+}
+.graentPed {
+    -fx-background-image: url("myndir/hringur-graenn.png");
+}
+.gultPed {
+    -fx-background-image: url("myndir/hringur-gulur.png");
+}
+.rauttPed {
+    -fx-background-image: url("myndir/hringur-raudur.png");
+}
+.svartPed {
+    -fx-background-image: url("myndir/hringur-svartur.png");
+}
+
+.one {
+    -fx-background-image: url("myndir/dice-six-faces-one.png");
+}
+.two {
+    -fx-background-image: url("myndir/dice-six-faces-two.png");
+}
+.three {
+    -fx-background-image: url("myndir/dice-six-faces-three.png");
+}
+.four {
+    -fx-background-image: url("myndir/dice-six-faces-four.png");
+}
+.five {
+    -fx-background-image: url("myndir/dice-six-faces-five.png");
+}
+.six {
+    -fx-background-image: url("myndir/dice-six-faces-six.png");
+}
+
+.start, .normal, .end, .goal {
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-width: 1.2;
+    -fx-border-color: #2c2925;
+}
+
+.start {
+    -fx-background-color: #f4ec9c;
+}
+
+.normal {
+    -fx-background-color: #fbfaf7;
+}
+
+.end {
+    -fx-background-color: #d7eef0;
+}
+
+.goal {
+    -fx-background-color: #cfe7c8;
+}

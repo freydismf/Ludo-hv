@@ -5,43 +5,85 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.LoginController">
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<VBox alignment ="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="752.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.LoginController">
    <children>
-      <Label alignment="CENTER" prefHeight="18.0" prefWidth="560.0" text="Lúdó" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <VBox prefHeight="147.0" prefWidth="489.0">
+      <ImageView fitHeight="250.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CSS/Myndir/Ludo.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" prefHeight="140.0" prefWidth="650.0">
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="590.0" text="Leikreglur">
+            <Label alignment="CENTER" prefHeight="66.0" prefWidth="549.0" text="Leikreglur">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" prefHeight="140.0" prefWidth="550.0" text="Sláðu inn nafn og veldu lit á peði etc etc" wrapText="true" />
+            <TextFlow prefWidth="520.0" textAlignment="CENTER">
+               <children>
+
+                  <Text text="Veldu þér nafn og lit áður en þú byrjar."
+                        style="-fx-font-size: 14px; -fx-fill: #2b241c;" />
+
+                  <Text text="&#10;&#10; "/>
+
+                  <Text text="Kastaðu teningi og færðu peðið áfram"
+                        style="-fx-font-size: 13px; -fx-fill: #2b241c;" />
+
+                  <Text text="&#10;&#10; "/>
+
+                  <Text text="Ef þú lendir á sama reit og andstæðingur fer hann aftur á byrjunarreit"
+                        style="-fx-font-size: 13px; -fx-fill: #2b241c;" />
+
+                  <Text text="&#10;&#10; "/>
+
+                  <Text text="Komdu peðinu í mark til að vinna."
+                        style="-fx-font-size: 14px; -fx-fill: #2b241c;" />
+
+               </children>
+            </TextFlow>
          </children>
          <VBox.margin>
             <Insets bottom="20.0" top="20.0" />
          </VBox.margin>
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
       </VBox>
-      <HBox prefHeight="42.0" prefWidth="489.0">
+      <HBox prefWidth="320.0" alignment="CENTER" spacing="12.0">
          <children>
-            <Label prefHeight="24.0" prefWidth="29.0" text="Nafn:" />
-            <TextField fx:id="fxNafnLeikmans" />
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="80.0" text="Nafn:">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="fxNafnLeikmans" prefHeight="26.0" prefWidth="149.0" />
          </children>
       </HBox>
-      <HBox prefHeight="96.0" prefWidth="489.0">
+      <HBox prefWidth="320.0" alignment="CENTER" spacing="12.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="28.0" text="Litur:" />
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="80.0" text="Litur:">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <ComboBox fx:id="fxLitaval" prefHeight="26.0" prefWidth="152.0" promptText="Veldu lit" />
          </children>
       </HBox>
-      <Button fx:id="fxHefjaLeik" mnemonicParsing="false" onAction="#onHefjaLeik" text="Hefja leik" />
+      <Button fx:id="fxHefjaLeik" mnemonicParsing="false" onAction="#onHefjaLeik" prefHeight="44.0" prefWidth="116.0" text="Hefja leik">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="22.0" />
+         </VBox.margin>
+      </Button>
    </children>
    <padding>
       <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />

@@ -26,7 +26,7 @@ public class LudoApp extends javafx.application.Application {
         ViewSwitcher.switchTo(View.LOGIN, true);
         stage.setTitle("Lúdó");
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
         stage.show();
     }
 
