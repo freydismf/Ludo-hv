@@ -8,7 +8,7 @@ public class Leikstillingar {
     private final String litur;
 
     /**
-     *
+     * Smiður fyrrir leikstillingahlut
      * @param nafn
      * @param litur
      */
@@ -18,7 +18,7 @@ public class Leikstillingar {
     }
 
     /**
-     *
+     * Skilar nafni
      * @return nafn
      */
     public String getNafn(){
@@ -26,11 +26,31 @@ public class Leikstillingar {
     }
 
     /**
-     *
+     * Skilar lit
      * @return litur
      */
     public String getLitur(){
         return litur;
+    }
+
+    /**
+     * skilar streng sem lýsir hlutnum
+     * @return strengur með innihaldi hlutarins
+     */
+    @Override
+    public String toString() {
+        return "Leikstillingar{" +
+                "Nafn=" + nafn +
+                ", Litur=" + litur +
+                '}';
+    }
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args){
+        Leikstillingar l = new Leikstillingar("Freydís", "Gulur");
+        System.out.println(l);
     }
 }
 

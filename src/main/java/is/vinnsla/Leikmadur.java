@@ -70,6 +70,10 @@ public class Leikmadur {
         reiturProperty.set(reitur);
     }
 
+    /**
+     * skilar streng sem lýsir hlutnum
+     * @return strengur með innihaldi hlutarins
+     */
     @Override
     public String toString() {
         return "Leikmaður{" +
