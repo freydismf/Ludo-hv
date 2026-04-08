@@ -2,6 +2,10 @@ package is.vidmot;
 
 import is.vinnsla.Leikstillingar;
 import is.vinnsla.Reitur;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -15,11 +19,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.beans.binding.Bindings;
 import is.vinnsla.Ludo;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Random;
 
 
 /******************************************************************************
@@ -35,6 +41,12 @@ public class LudoController implements GognInterface<Leikstillingar> {
     public static final String NYR_LEIKUR = ". Ýttu á \"Nýr leikur\" til þess að hefja nýjann leik";
     public static final String A_LEIK = "Á leik";
     public static final String BIDUR = "Bíður";
+
+    private static final int DICE_FLICKER_FRAMES = 14;
+    private static final double DICE_FLICKER_MS = 75;
+    private static final double STEP_PAUSE_MS = 130;
+    private static final double COMPUTER_DELAY_MS = 800;
+    private static final String[] DICE_FACES = {"one", "two",  "three", "four", "five", "six"};
 
     //Tilviksbreytur
     @FXML private GridPane fxBord;
@@ -56,6 +68,8 @@ public class LudoController implements GognInterface<Leikstillingar> {
     private Leikstillingar stillingar;
     private Ludo ludo;
     private final HashMap<Reitur, StackPane> vidmotLeid = new HashMap<>();
+    private boolean animationRunning = false;
+    private final Random random = new Random();
 
     /**
      * Handler fyrir "Nýr leikur" takkann
@@ -64,7 +78,9 @@ public class LudoController implements GognInterface<Leikstillingar> {
      */
     @FXML
     void onNyrLeikur(ActionEvent event) {
+        animationRunning = false;
         ludo.nyrLeikur();
+        fxTeningur.setDisable(false);
     }
 
     /**
@@ -74,7 +90,94 @@ public class LudoController implements GognInterface<Leikstillingar> {
      */
     @FXML
     void onTeinigur(ActionEvent event) {
-        ludo.leikaLeik();
+        if (animationRunning || ludo.erLokid().get()) {
+            return;
+        }
+        animationRunning = true;
+        fxTeningur.disableProperty().unbind();
+        fxTeningur.setDisable(true);
+
+        ludo.kastaTening();
+        int steps = ludo.getTeningsTala();
+
+        startDiceAnimation(steps);
+    }
+
+    /**
+     * Spilar hreyfimynd: flettir í gegn um allar tölur tenings að
+     * handahófi áður en lent er á loka tölu
+     *
+     * @param finalValue raungildi tenings kastað
+     */
+    private void startDiceAnimation(int finalValue) {
+        fxTeningur.getStyleClass().removeAll(DICE_FACES);
+
+        Timeline flicker = new Timeline();
+
+        for (int i = 0; i < DICE_FLICKER_FRAMES; i++) {
+            boolean isLastFrame = (i == DICE_FLICKER_FRAMES - 1);
+            int face = isLastFrame ? (finalValue - 1) : random.nextInt(6);
+            KeyFrame kf = new KeyFrame(
+                    Duration.millis(DICE_FLICKER_MS * (i + 1)),
+                    e -> {
+                        fxTeningur.getStyleClass().removeAll(DICE_FACES);
+                        fxTeningur.getStyleClass().add(DICE_FACES[face]);
+                    }
+            );
+            flicker.getKeyFrames().add(kf);
+        }
+        flicker.setOnFinished(e -> startPieceAnimation(finalValue));
+        flicker.play();
+    }
+
+    /**
+     * Hreyfir peðin skref fyrir skref um reiti
+     *
+     * @param steps fjöldi skrefa eftir teningsgildi
+     */
+    private void startPieceAnimation(int steps) {
+        SequentialTransition seq = new SequentialTransition();
+        for (int i = 0; i < steps; i++) {
+            PauseTransition pause = new PauseTransition(Duration.millis(STEP_PAUSE_MS));
+            pause.setOnFinished(e -> ludo.faeraLeikmann());
+            seq.getChildren().add(pause);
+        }
+        seq.setOnFinished(e -> onAnimationDone());
+        seq.play();
+    }
+
+    /**
+     * Skoðar hvort talva á að gera, kemur pása milli leikmanna
+     * Hreyfimynd lýkur annars
+     */
+    private void onAnimationDone() {
+        boolean lokid = ludo.leikaLeik();
+        animationRunning = false;
+
+        if (lokid) {
+            return;
+        }
+        if (ludo.erNaestiTolva()) {
+            PauseTransition computerDelay = new PauseTransition(Duration.millis(COMPUTER_DELAY_MS));
+            computerDelay.setOnFinished(e -> doComputerTurn());
+            computerDelay.play();
+        } else {
+            fxTeningur.setDisable(false);
+        }
+    }
+
+    /**
+     * Sjálfkrafa ferð tölvu
+     * Kallar og keyrir sömu hreyfimyndir og leikmaður
+     */
+    private void doComputerTurn() {
+        if (ludo.erLokid().get()) {
+            return;
+        }
+        animationRunning = true;
+        ludo.kastaTening();
+        int steps = ludo.getTeningsTala();
+        startDiceAnimation(steps);
     }
 
     /**
@@ -105,12 +208,7 @@ public class LudoController implements GognInterface<Leikstillingar> {
      * bindur teningamyndir við teninginn
      */
     private void stillaTening() {
-        String[] teningaMyndir = {"one", "two", "three", "four", "five", "six"};
-        fxTeningur.getStyleClass().add(teningaMyndir[5]);
-        ludo.getTeningur().tala().addListener((observableValue, gamaltGildi, nyttGildi) -> {
-            fxTeningur.getStyleClass().remove(teningaMyndir[gamaltGildi.intValue() - 1]);
-            fxTeningur.getStyleClass().add(teningaMyndir[nyttGildi.intValue() - 1]);
-        });
+        fxTeningur.getStyleClass().add(DICE_FACES[5]);
     }
 
     /**
@@ -257,7 +355,7 @@ public class LudoController implements GognInterface<Leikstillingar> {
     /**
      * Hjálparaðferð fyrir val á peði
      *
-     * @param litur
+     * @param litur peðs
      * @return tala
      */
     private int veljaPed(String litur) {

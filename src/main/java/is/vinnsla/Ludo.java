@@ -2,6 +2,7 @@ package is.vinnsla;
 
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,7 +40,7 @@ public class Ludo {
 
 
     /**
-     *
+     * Reitir Ludo Leikborðsins
      */
     public Ludo(){
 
@@ -116,13 +117,11 @@ public class Ludo {
     }
 
     /**
-     *virkmi ludo leiksins
+     * Virkni Ludo leiksins
      * @return true ef leik er lokið
      */
     public boolean leikaLeik(){
-        teningur.kasta();
-        //færa leikmann eftir tening
-        if(faeraleikmann()){
+        if(erImarki()){
             stada.setValue(Stada.LOKID);
             //sigurvegari
             sigurvegariProperty.setValue(getLeikmadur().getNafn());
@@ -137,12 +136,36 @@ public class Ludo {
     }
 
     /**
-     * færir leikmann eftir tening
+     * Kastar teningi án þess að færa leikmann
+     * Notað fyrir hreyfimynd
+     */
+    public void kastaTening() {
+        teningur.kasta();
+    }
+
+    /**
+     * Skilar fjölda skrefa sem leikmaður tekur (gildi tenings)
+     * @return teningsgildi
+     */
+    public int getTeningsTala() {
+        return teningur.getTala();
+    }
+
+    /**
+     * Skilar hvort næsti leikmaður sé tölvan
+     * @return true ef tölva á leik
+     */
+    public boolean erNaestiTolva() {
+        return naesti == 1;
+    }
+
+    /**
+     * Færir leikmann eftir tening
      * @return hvort að leikmaður sé í marki
      */
-    private boolean faeraleikmann(){
+    public boolean faeraLeikmann(){
         int mark = (naesti == 1) ? MARK2 : MARK;
-        getLeikmadur().faera(teningur.getTala(),  mark);
+        getLeikmadur().faera(1, mark);
         return erImarki();
     }
 
@@ -165,7 +188,7 @@ public class Ludo {
         leikmenn[1].setReitur(1);
     }
 
-    //get og set aðferðir
+    //Get og Set aðferðir
     /**
      * Setter aðferð fyrir nafn leikmanns og tölvu
      * @param nafn Nafn Leikmanns
@@ -175,7 +198,7 @@ public class Ludo {
         naestiLeikmadurProperty.set(leikmenn[naesti].getNafn());
     }
     /**
-     * get aðferð fyrir leikmann númer i
+     * Getter aðferð fyrir leikmann númer i
      * @param i 0 eða 1
      * @return leikmaður
      */
@@ -222,21 +245,21 @@ public class Ludo {
     }
 
     /**
-     * Skilar lista með leiðinni
+     * Skilar lista með leið leikmanns
      * @return leið
      */
     public ArrayList<Reitur> getLeid(){
         return leid;
     }
     /**
-     * Skilar lista með leiðinni
+     * Skilar lista með leið tölvu
      * @return leið2
      */
     public ArrayList<Reitur> getLeid2(){
         return leid2;
     }
 
-    // private hjálparaðferðir
+    // Hjálparaðferðir
     /**
      * @return segir til um hvort leikmaður er á lokareiti
      */
@@ -274,7 +297,7 @@ public class Ludo {
 
     /**
      *
-     * @param args
+     * @param args ónotað
      */
     public static void main(String[] args) {
         Ludo ludo = new Ludo();
