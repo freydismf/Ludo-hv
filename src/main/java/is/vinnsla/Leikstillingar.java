@@ -8,9 +8,9 @@ public class Leikstillingar {
     private final String litur;
 
     /**
-     * Smiður fyrrir leikstillingahlut
-     * @param nafn
-     * @param litur
+     *
+     * @param nafn leikmanns
+     * @param litur peðs
      */
     public Leikstillingar(String nafn, String litur){
         this.nafn = nafn;

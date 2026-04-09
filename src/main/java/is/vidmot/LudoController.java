@@ -340,7 +340,12 @@ public class LudoController implements GognInterface<Leikstillingar> {
             Reitur reitur = ludo.getLeid().get(i);
             vidmotLeid.get(reitur).getStyleClass().add(litir[2]);
         }
-        for (int i = 56; i < ludo.getLeid().size() - 1; i++) {
+        for (int i = 1; i < 28; i++) {
+            Reitur reitur = ludo.getLeid2().get(i);
+            vidmotLeid.get(reitur).getStyleClass().add(litir[2]);
+        }
+
+        for (int i = 55; i < ludo.getLeid().size() - 1; i++) {
             Reitur reitur = ludo.getLeid().get(i);
             vidmotLeid.get(reitur).getStyleClass().add(litir[1]);
         }
