@@ -89,9 +89,7 @@ public class Ludo {
             leid.add(new Reitur(i, 8));
         }
 
-        for (int j = 7; j >= 6; j--) {
-            leid.add(new Reitur(14, j));
-        }
+        leid.add(new Reitur(14, 7));
 
         for (int i = 13; i >= 8; i--) {
             leid.add(new Reitur(i, 7));
@@ -102,8 +100,9 @@ public class Ludo {
         leid.add(mark);
         MARK = leid.size();
 
-        ArrayList<Reitur> outerLoop = new ArrayList<>(leid.subList(0, 56));
-        for (int i = 28; i < 56; i++) {
+        ArrayList<Reitur> outerLoop = new ArrayList<>(leid.subList(0, 55));
+        outerLoop.add(new Reitur(14, 6));
+        for (int i = 28; i < outerLoop.size(); i++) {
             leid2.add(outerLoop.get(i));
         }
         for (int i = 0; i < 27; i++) {
@@ -186,6 +185,7 @@ public class Ludo {
         stada.setValue(Stada.I_GANGI);
         leikmenn[0].setReitur(1);
         leikmenn[1].setReitur(1);
+        naesti = 0;
     }
 
     //Get og Set aðferðir
@@ -195,7 +195,7 @@ public class Ludo {
      */
     public void setNafnLeikmanns(String nafn){
         leikmenn[0].setNafn(nafn);
-        naestiLeikmadurProperty.set(leikmenn[naesti].getNafn());
+        naestiLeikmadurProperty.set(leikmenn[0].getNafn());
     }
     /**
      * Getter aðferð fyrir leikmann númer i
