@@ -71,6 +71,33 @@ public class LudoController implements GognInterface<Leikstillingar> {
     private boolean animationRunning = false;
     private final Random random = new Random();
 
+
+
+    /**
+     * Frumstilling á viðmótshlutum og byrjar leikinn
+     */
+    @Override
+    public void setGogn(Leikstillingar stillingar) {
+        this.stillingar = stillingar;
+        ludo = new Ludo();
+        ludo.setNafnLeikmanns(stillingar.getNafn());
+        try {
+            geraLeid();
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        geracCute();
+        stillaTening();
+        bindaLeikmenn();
+        bindaHnappa();
+        bindaSkilabod();
+        bindaStoduLeikmanna();
+        toggleTheme();
+        setjaNafnOgLit();
+
+    }
+
     /**
      * Handler fyrir "Nýr leikur" takkann
      *
@@ -179,31 +206,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
         ludo.kastaTening();
         int steps = ludo.getTeningsTala();
         startDiceAnimation(steps);
-    }
-
-    /**
-     * Frumstilling á viðmótshlutum og byrjar leikinn
-     */
-    @Override
-    public void setGogn(Leikstillingar stillingar) {
-        this.stillingar = stillingar;
-        ludo = new Ludo();
-        ludo.setNafnLeikmanns(stillingar.getNafn());
-        try {
-            geraLeid();
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        geracCute();
-        stillaTening();
-        bindaLeikmenn();
-        bindaHnappa();
-        bindaSkilabod();
-        bindaStoduLeikmanna();
-        toggleTheme();
-        setjaNafnOgLit();
-
     }
 
     /**
