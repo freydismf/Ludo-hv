@@ -186,6 +186,9 @@ public class Ludo {
         stada.setValue(Stada.I_GANGI);
         leikmenn[0].setReitur(1);
         leikmenn[1].setReitur(1);
+        naestiLeikmadurProperty.set(leikmenn[0].getNafn());
+        naesti = 0;
+        fyrri = 1;
     }
 
     //Get og Set aðferðir

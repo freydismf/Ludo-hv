@@ -161,7 +161,8 @@ public class LudoController implements GognInterface<Leikstillingar> {
             PauseTransition computerDelay = new PauseTransition(Duration.millis(COMPUTER_DELAY_MS));
             computerDelay.setOnFinished(e -> doComputerTurn());
             computerDelay.play();
-        } else {
+        }
+        else {
             fxTeningur.setDisable(false);
         }
     }
@@ -190,7 +191,8 @@ public class LudoController implements GognInterface<Leikstillingar> {
         ludo.setNafnLeikmanns(stillingar.getNafn());
         try {
             geraLeid();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
         geracCute();
