@@ -6,16 +6,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /******************************************************************************
- *  Nafn    :
- *  T-póstur:
- *  Lýsing  : Beinagreind að Application klasa
- *
- *
+ *  Nafn    : Freydís María og Hrefna
+ *  Lýsing  : Application klasi
  *****************************************************************************/
 public class LudoApp extends javafx.application.Application {
     /**
      * Ræsir appið
-     *
      * @param stage glugginn
      * @throws Exception undnantekning sem verður ef villla
      */
@@ -32,7 +28,6 @@ public class LudoApp extends javafx.application.Application {
 
     /**
      * Aðalforritið sem ræsir appið
-     *
      * @param args ónotað
      */
     public static void main(String[] args) {

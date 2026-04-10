@@ -8,7 +8,7 @@ public class Leikstillingar {
     private final String litur;
 
     /**
-     *
+     *Smiður fyrir leikstillingar
      * @param nafn leikmanns
      * @param litur peðs
      */
@@ -45,7 +45,7 @@ public class Leikstillingar {
                 '}';
     }
     /**
-     *
+     * Main fall
      * @param args
      */
     public static void main(String[] args){

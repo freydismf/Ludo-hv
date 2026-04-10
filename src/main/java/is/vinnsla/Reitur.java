@@ -13,7 +13,7 @@ public class Reitur {
 
 
     /**
-     *
+     * Smiður fyri reit
      * @param rod Röð Rúðugrindar
      * @param dalkur Dálkur Rúðugrindar
      */
@@ -22,19 +22,31 @@ public class Reitur {
         this.rod = rod;
     }
 
+    /**
+     * Override fyrir equals
+     * @param o   the reference object with which to compare.
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Reitur)) return false;
+        if (!(o instanceof Reitur)) {
+            return false;
+        }
         Reitur r = (Reitur) o;
         return rod == r.rod && dalkur == r.dalkur;
     }
+
+    /**
+     * Oerride fyrir hashCode
+     * @return hash code
+     */
     @Override
     public int hashCode() {
         return java.util.Objects.hash(rod, dalkur);
     }
 
     /**
-     *
+     *Skilar röð
      * @return rod
      */
     public int getRod(){
@@ -42,7 +54,7 @@ public class Reitur {
     }
 
     /**
-     *
+     * Skilar dálki
      * @return dalkur
      */
     public int getDalkur(){
