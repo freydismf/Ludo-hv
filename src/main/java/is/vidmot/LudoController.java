@@ -100,7 +100,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Handler fyrir "Nýr leikur" takkann
-     *
      * @param event e
      */
     @FXML
@@ -112,7 +111,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Handler fyrir teninginn
-     *
      * @param event e
      */
     @FXML
@@ -133,7 +131,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
     /**
      * Spilar hreyfimynd: flettir í gegn um allar tölur tenings að
      * handahófi áður en lent er á loka tölu
-     *
      * @param finalValue raungildi tenings kastað
      */
     private void startDiceAnimation(int finalValue) {
@@ -159,7 +156,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Hreyfir peðin skref fyrir skref um reiti
-     *
      * @param steps fjöldi skrefa eftir teningsgildi
      */
     private void startPieceAnimation(int steps) {
@@ -217,7 +213,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Býr til stackpane
-     *
      * @return stackpane
      * @throws IOException e
      */
@@ -228,7 +223,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Setur leið á borðið
-     *
      * @throws IOException e
      */
     private void geraLeid() throws IOException {
@@ -363,7 +357,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
 
     /**
      * Hjálparaðferð fyrir val á peði
-     *
      * @param litur peðs
      * @return tala
      */

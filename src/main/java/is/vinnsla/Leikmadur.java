@@ -83,7 +83,7 @@ public class Leikmadur {
     }
 
     /**
-     *
+     * Main fall
      * @param args
      */
     public static void main(String[] args){
