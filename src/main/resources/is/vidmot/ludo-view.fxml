@@ -39,7 +39,7 @@
                      <content>
                         <VBox prefHeight="200.0" prefWidth="200.0" spacing="8">
                            <children>
-                              <Label style="-fx-text-fill: black;" text="Leikreglur:" />
+                              <Label  text="Leikreglur:" />
                               <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Kastaðu teningi og færðu peðið áfram.&#10;&#10;Lendirðu á andstæðingi? Þá fer hann aftur í byrjun.&#10;&#10;Komdu peðinu í mark til að vinna." wrapText="true" />
                            </children>
                             <padding>
