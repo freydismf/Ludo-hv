@@ -298,10 +298,11 @@ public class Ludo {
 
 
     /**
-     *
+     * Main fall
      * @param args ónotað
      */
-    public static void main(String[] args) {
+    static void main(String[] args) {
+        //public tekið út af því að það er víst "redundant"
         Ludo ludo = new Ludo();
         ludo.nyrLeikur();
         System.out.println(ludo.getLeikmadur(0));

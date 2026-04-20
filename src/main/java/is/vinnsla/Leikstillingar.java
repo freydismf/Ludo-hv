@@ -48,7 +48,7 @@ public class Leikstillingar {
      * Main fall
      * @param args
      */
-    public static void main(String[] args){
+    static void main(String[] args){
         Leikstillingar l = new Leikstillingar("Freydís", "Gulur");
         System.out.println(l);
     }

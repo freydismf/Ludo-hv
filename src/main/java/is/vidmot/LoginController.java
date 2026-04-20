@@ -12,13 +12,12 @@ import is.vinnsla.Leikstillingar;
  *  Lýsing  : Controller eða stýring fyrir upphafsskjá
  *****************************************************************************/
 public class LoginController {
-
+    //Viðmótsbreytur
     @FXML
     private ComboBox<String> fxLitaval;
-
     @FXML
     private TextField fxNafnLeikmans;
-
+    //Fastar
     private static final String[] litir = {"Gulur", "Rauður", "Grænn", "Blár"};
     private final int Hamark = 15;
 
@@ -42,7 +41,7 @@ public class LoginController {
      * @param event
      */
     @FXML
-    void onHefjaLeik(ActionEvent event) {
+    private void onHefjaLeik(ActionEvent event) {
         Leikstillingar stillingar = stilla();
         ViewSwitcher.switchTo(View.LUDO, false, stillingar);
     }

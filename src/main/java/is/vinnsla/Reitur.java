@@ -1,7 +1,4 @@
 package is.vinnsla;
-
-import javafx.beans.property.SimpleObjectProperty;
-
 /******************************************************************************
  *  Nafn    : Freydís María og Hrefna Sóley
  *  Lýsing  : Klasi fyrir reiti í Lúdó

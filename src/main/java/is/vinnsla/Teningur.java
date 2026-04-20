@@ -47,7 +47,7 @@ public class Teningur {
      * Test forrit fyrir klasann
      * @param args a
      */
-    public static void main (String [] args) {
+    static void main (String [] args) {
         Teningur t = new Teningur();
         System.out.println (t);
     }

@@ -103,7 +103,7 @@ public class LudoController implements GognInterface<Leikstillingar> {
      * @param event e
      */
     @FXML
-    void onNyrLeikur(ActionEvent event) {
+    public void onNyrLeikur(ActionEvent event) {
         animationRunning = false;
         ludo.nyrLeikur();
         fxTeningur.setDisable(false);
@@ -114,7 +114,7 @@ public class LudoController implements GognInterface<Leikstillingar> {
      * @param event e
      */
     @FXML
-    void onTeinigur(ActionEvent event) {
+    public void onTeinigur(ActionEvent event) {
         if (animationRunning || ludo.erLokid().get()) {
             return;
         }
@@ -261,28 +261,22 @@ public class LudoController implements GognInterface<Leikstillingar> {
         vidmotLeid.get(ludo.getLeid().getFirst()).getStyleClass().add(leikmadurStill[i]);
         vidmotLeid.get(ludo.getLeid2().getFirst()).getStyleClass().add(leikmadurStill[4]);
         ludo.getLeikmadur(0).getReiturProperty().addListener((obs, gamaltGildi, nyttGildi) -> {
-
             Reitur gamliReitur = ludo.getLeid().get(gamaltGildi.intValue() - 1);
             Reitur nyiReitur = ludo.getLeid().get(nyttGildi.intValue() - 1);
-
             vidmotLeid.get(gamliReitur)
                     .getStyleClass()
                     .remove(leikmadurStill[i]);
-
             vidmotLeid.get(nyiReitur)
                     .getStyleClass()
                     .add(leikmadurStill[i]);
         });
 
         ludo.getLeikmadur(1).getReiturProperty().addListener((obs, gamaltGildi, nyttGildi) -> {
-
             Reitur gamliReitur = ludo.getLeid2().get(gamaltGildi.intValue() - 1);
             Reitur nyiReitur = ludo.getLeid2().get(nyttGildi.intValue() - 1);
-
             vidmotLeid.get(gamliReitur)
                     .getStyleClass()
                     .remove(leikmadurStill[4]);
-
             vidmotLeid.get(nyiReitur)
                     .getStyleClass()
                     .add(leikmadurStill[4]);
