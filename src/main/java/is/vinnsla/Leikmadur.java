@@ -84,7 +84,7 @@ public class Leikmadur {
 
     /**
      * Main fall
-     * @param args
+     * @param args args
      */
     static void main(String[] args){
         Leikmadur l = new Leikmadur("Freydís");

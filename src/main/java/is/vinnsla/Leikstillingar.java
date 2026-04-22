@@ -46,7 +46,7 @@ public class Leikstillingar {
     }
     /**
      * Main fall
-     * @param args
+     * @param args args
      */
     static void main(String[] args){
         Leikstillingar l = new Leikstillingar("Freydís", "Gulur");

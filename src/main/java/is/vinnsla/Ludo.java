@@ -43,63 +43,48 @@ public class Ludo {
      * Reitir Ludo Leikborðsins
      */
     public Ludo(){
-
         //Upphafs reitur
         for (int i = 13; i >= 8; i--) {
             leid.add(new Reitur(i, 6));
         }
-
         for (int j =5; j >= 0; j--) {
             leid.add(new Reitur(8, j));
         }
-
         for (int i = 7; i >= 6; i--) {
             leid.add(new Reitur(i, 0));
         }
-
         for (int j = 1; j <= 6; j++) {
             leid.add(new Reitur(6, j));
         }
-
         for (int i = 5; i >= 0; i--) {
             leid.add(new Reitur(i, 6));
         }
-
         for (int j = 7; j <= 8; j++) {
             leid.add(new Reitur(0, j));
         }
-
         for (int i = 1; i <= 6; i++) {
             leid.add(new Reitur(i, 8));
         }
-
         for (int j =  9; j <= 14; j++) {
             leid.add(new Reitur(6, j));
         }
-
         for (int i = 7; i <= 8; i++) {
             leid.add(new Reitur(i, 14));
         }
-
         for (int j = 13; j >= 8; j--) {
             leid.add(new Reitur(8, j));
         }
-
         for (int i = 9; i <= 14; i++) {
             leid.add(new Reitur(i, 8));
         }
-
         leid.add(new Reitur(14, 7));
-
         for (int i = 13; i >= 8; i--) {
             leid.add(new Reitur(i, 7));
         }
-
         //Loka reitur
         Reitur mark = new Reitur(7,7);
         leid.add(mark);
         MARK = leid.size();
-
         ArrayList<Reitur> outerLoop = new ArrayList<>(leid.subList(0, 55));
         outerLoop.add(new Reitur(14, 6));
         for (int i = 28; i < outerLoop.size(); i++) {
@@ -108,7 +93,6 @@ public class Ludo {
         for (int i = 0; i < 27; i++) {
             leid2.add(outerLoop.get(i));
         }
-
         for (int i = 1; i <= 7; i++) {
             leid2.add(new Reitur(i, 7));
         }

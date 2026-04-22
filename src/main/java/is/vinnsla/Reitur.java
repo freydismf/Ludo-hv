@@ -5,6 +5,7 @@ package is.vinnsla;
  *****************************************************************************/
 public class Reitur {
 
+    //tilviksbreytur
     int rod;
     int dalkur;
 

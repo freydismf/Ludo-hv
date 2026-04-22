@@ -20,14 +20,11 @@ import javafx.scene.layout.StackPane;
 import javafx.beans.binding.Bindings;
 import is.vinnsla.Ludo;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Random;
-
-
 /******************************************************************************
  *  Nafn    : Freydís María og Hrefna Sóley
  *  Lýsing  : Controller eða stýring fyrir notendaviðmótið
@@ -64,14 +61,11 @@ public class LudoController implements GognInterface<Leikstillingar> {
     @FXML private Label fxStadaNotanda;
 
     //vinnslan
-    //private final Ludo ludo = new Ludo();
     private Leikstillingar stillingar;
     private Ludo ludo;
     private final HashMap<Reitur, StackPane> vidmotLeid = new HashMap<>();
     private boolean animationRunning = false;
     private final Random random = new Random();
-
-
 
     /**
      * Frumstilling á viðmótshlutum og byrjar leikinn
@@ -270,7 +264,6 @@ public class LudoController implements GognInterface<Leikstillingar> {
                     .getStyleClass()
                     .add(leikmadurStill[i]);
         });
-
         ludo.getLeikmadur(1).getReiturProperty().addListener((obs, gamaltGildi, nyttGildi) -> {
             Reitur gamliReitur = ludo.getLeid2().get(gamaltGildi.intValue() - 1);
             Reitur nyiReitur = ludo.getLeid2().get(nyttGildi.intValue() - 1);
